@@ -4,15 +4,18 @@
 DONE - set up a electron project
 DONE - see if I can get it transparent black
 
-## MON GOALS
+## MON GOALS:
 ------------------------
-- just parse the subtitle file. 
-- and put on bitbucket
-
+DONE - and put on bitbucket
+DONE - just parse the subtitle file. 
 
 ## TODO NEXT:
 -----------------------
-
+- get access to a timer in the render loop (request anim frame?)
+- using current time of timer in millis and a framerate?, walk through a datastructure of cues and show/hide them (a cue?)
+- handle pausing, scrubbing
+- handle retiming slowdown/speedup.
+- visualize the queue and the timer's movement through it.
 
 ## NOTES:
 -----------------------
@@ -23,9 +26,9 @@ Parse it and then with a timer, if curr time is in range of a parsed block, disp
 
 - The transparent thing isn't THAAAT important, it could still just be an "always on top" black window.  Black is easier to read subs anywayn
 
-
 ## POTENTIAL FEATURES:
 -----------------------
+- be able to pin it to another window?
 - could optionally support a video if you have it, and then it would actually sync to the play/pause/scrub of the video
 - map a play pause button that it listens for even if it also controlling the external video
 - dictionary lookups, same as language reactor

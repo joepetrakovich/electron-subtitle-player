@@ -1,12 +1,16 @@
-// All of the Node.js APIs are available in the preload process.
-// It has the same sandbox as a Chrome extension.
-window.addEventListener('DOMContentLoaded', () => {
-  const replaceText = (selector, text) => {
-    const element = document.getElementById(selector)
-    if (element) element.innerText = text
-  }
+const { contextBridge } = require('electron')
+const { parse, resync, stringify } = require('subtitle')
+const fs = require('fs')
 
-  for (const type of ['chrome', 'node', 'electron']) {
-    replaceText(`${type}-version`, process.versions[type])
+contextBridge.exposeInMainWorld('electron', {
+  parseSrt: (filePath) => {
+    fs.createReadStream(filePath)
+      .pipe(parse())
+      .on('data', node => {
+        console.log('parsed node:', node)
+      })
+      .on('error', console.error)
+      .on('finish', () => console.log('parser has finished'))
   }
 })
+
