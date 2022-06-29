@@ -9,16 +9,23 @@ DONE - see if I can get it transparent black
 DONE - and put on bitbucket
 DONE - just parse the subtitle file. 
 
+## TUES GOALS:
+-----------------------
+DONE - get access to a timer in the render loop (request anim frame?)
+DONE - using current time of timer in millis and a framerate?, walk through a datastructure of cues and show/hide them (a cue?)
+- actually show/hide the cue text on the bar in large white letters.
+
+
 ## TODO NEXT:
 -----------------------
-- get access to a timer in the render loop (request anim frame?)
-- using current time of timer in millis and a framerate?, walk through a datastructure of cues and show/hide them (a cue?)
+- see if it actually is correctly timed to a show I can access.
 - handle pausing, scrubbing
 - handle retiming slowdown/speedup.
 - visualize the queue and the timer's movement through it.
 
 ## NOTES:
 -----------------------
+gpu_init.cc(446)] Passthrough is not supported, GL is disabled, ANGLE is
 - If I can't play WebTTV with an infinite video stream, maybe I can just render the SRT file at the right times to a timer.  
 Parse it and then with a timer, if curr time is in range of a parsed block, display that until it leaves range.  would have to allow for more than one box to appear (below any current box.)
 - interval tree algorithm to show/hide queried current time, may not be necessary though since an SRT file is usually sorted, right? we could just have a render loop constantly checking if we are entered or exiting the next cue. tricky though if you scrub around.. scrubbing will need to find it's placement in the horizontal timespan. user scrubs video to 00:03:32, that might place us in-between cues.
