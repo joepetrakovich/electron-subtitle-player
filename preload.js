@@ -1,4 +1,4 @@
-const { contextBridge } = require('electron')
+const { contextBridge, ipcRenderer } = require('electron')
 const { parse, filter } = require('subtitle')
 const fs = require('fs')
 
@@ -20,6 +20,13 @@ contextBridge.exposeInMainWorld('electron', {
         console.log('parser has finished')
         onComplete(cues);
       })
-  }
+  }, 
+  onGlobalKeyPressed: (callback) => ipcRenderer.on('global-key-pressed', callback)
 })
+
+// ipcRenderer.on('global-key-pressed', (event, value) => {
+//   if (value == "Space") {
+//     window.playBackState = window.playBackState == "paused" ? "playing" : "paused";
+//   }
+// });
 

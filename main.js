@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, globalShortcut} = require('electron')
 const path = require('path')
 
 function createWindow () {
@@ -25,7 +25,18 @@ function createWindow () {
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
+
 app.whenReady().then(() => {
+  globalShortcut.register('Space', () => {
+    var windows = BrowserWindow.getAllWindows();
+    if (windows.length) {
+      var mainWindow = windows[0];
+      mainWindow.webContents.send('global-key-pressed', 'Space');
+    }
+
+    console.log('Electron loves global shortcuts!')
+  })
+}).then(() => {
   createWindow()
 
   app.on('activate', function () {

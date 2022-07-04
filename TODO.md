@@ -22,6 +22,12 @@ DONE - show load instructions and status when the first sub hasn't started
 DONE - adjust load instructions appearance and subtitle styles centering
 
 
+## MON GOALS
+-----------------
+DONE - add current time indicator on hover.
+- add pause
+
+
 ## TODO NEXT:
 -----------------------
 - handle when text gets super long, can it auto flow. should be pretty damn rare but just in case.
@@ -32,8 +38,11 @@ DONE - adjust load instructions appearance and subtitle styles centering
 - handle retiming slowdown/speedup.
 - visualize the queue and the timer's movement through it.
 
+
 ## NOTES:
 -----------------------
+- may make sense to have a state machine for pausing?
+- probably my timing code will have to change if I end up making an extension with ability to see the videos current time
 gpu_init.cc(446)] Passthrough is not supported, GL is disabled, ANGLE is
 - If I can't play WebTTV with an infinite video stream, maybe I can just render the SRT file at the right times to a timer.  
 Parse it and then with a timer, if curr time is in range of a parsed block, display that until it leaves range.  would have to allow for more than one box to appear (below any current box.)
