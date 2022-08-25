@@ -1,4 +1,4 @@
-# subkit
+# Electron Subtitle Player
 
 A basic .srt Subtitle playback app built on ElectronJS.
 
